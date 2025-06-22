@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log analyser</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <p id="data"></p>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">Log Analyser</div>
+      <ul class="nav-links">
+        <li><a href="./upload/">Upload File</a></li>
+      </ul>
+      <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h3>Dashboard</h3>
+      </div>
+      <ul class="sidebar-menu">
+        <div class="filter-container">
+            <div class="singleFilter">
+                <label for="userFilter">Username: </label>
+                <input type="text" id="userFilter" placeholder="username" />
+                <br />
+                <br />
+                <label for="ipFilter">ClientIp: </label>
+                <input type="text" id="ipFilter" placeholder="103.01.01" />
+                <!-- <br />
+                <br />
+                <label for="timeFilter">Timestamp: </label>
+                <input
+                  type="text"
+                  id="timeFilter"
+                  placeholder="2025-12-12T04:50:32+05:30"
+                /> -->
+                <br />
+                <br />
+                <label for="methodFilter">Method: </label>
+                <input type="text" id="methodFilter" placeholder="Get/Post" />
+                <br />
+                <br />
+                <label for="statusFilter">Status: </label>
+                <input type="text" id="statusFilter" placeholder="TCP-miss/200" />
+                <br />
+                <br />
+                <label for="logTypeFilter">LogType: </label>
+                <input type="text" id="logTypeFilter" placeholder="AN_SQUID_LOG/Arrayos" />
+                <br />
+                <br />
+                <label for="otherFilter">Other: </label>
+                <input type="text" id="otherFilter" placeholder="message etc.." />
+
+            </div>
+         
+
+          <br />
+          <br />
+          <div class="timeDuration">
+            <h3>Data between :</h3>
+            <input type="text" id="startTimestampFilter" placeholder="Start time"/>
+            <br />
+            <br />
+            <input type="text" id="endTimestampFilter" placeholder="End date" />
+          </div>
+          <br>
+          <br>
+          <div class="filterButtons">
+            <button class="applyFilter">Apply</button>
+            <button class="resetFilter">Reset</button>
+          </div>
+         
+        </div>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <h1>Welcome !</h1>
+
+      <div class="graph">
+        <div>
+          <h2>Methods</h2>
+          <canvas id="myPieChart" width="400" height="400"></canvas>
+          <div id="legend"></div>
+        </div>
+
+        <div>
+          <h2>Status Code</h2>
+          <canvas id="myPieChartstatus" width="400" height="400"></canvas>
+          <div id="legendstatus"></div>
+        </div>
+
+        <div>
+          <h2>Log Type</h2>
+          <canvas id="myPieChartLogType" width="400" height="400"></canvas>
+          <div id="legendLogType"></div>
+        </div>
+
+        <div style="border: 1px solid black; margin-top: 10px;">
+          <h2>Top 5 users based on    requests</h2>
+         <div class="chart-container" id="chart"></div>
+        </div>
+      </div>
+
+      <h2 id="entityNo">00</h2>
+
+      <div id="tableContainer">
+        <table id="dataTable">
+          <thead>
+            <tr id="tableHeader"></tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+
+      <div class="pageChange">
+        <button class="previous">< Previous</button>
+        <button class="next">Next ></button>
+      </div>
+      
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
